@@ -45,7 +45,7 @@
   border-block-end: 1px solid var(--color-dark);
 }
 
-.theme_light .header__theme-menu-button_active  {
+.theme_light .header__theme-menu-button_active {
   outline: 1px solid var(--color-dark);
 }
 
@@ -103,7 +103,7 @@
     border-block-end: 1px solid var(--color-dark);
   }
   
-  .theme_auto .header__theme-menu-button_active  {
+  .theme_auto .header__theme-menu-button_active {
     outline: 1px solid var(--color-dark);
   }
   
