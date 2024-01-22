@@ -4,12 +4,7 @@
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   color: var(--main-text-color);
   font-family: var(--font, monospace);
-  background-color: var(--background-color);
-  background-image: var(--background-image);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  background: var(--background-color) var(--background-image) no-repeat fixed center / cover;
 }
 
 .header {
@@ -35,8 +30,8 @@
   block-size: 25px;
   top: 10px;
   right: 10px;
-  border-inline-end: 1px solid var(--accent-color);
-  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--border-color);
+  border-block-start: 1px solid var(--border-color);
 }
 
 @media (width >= 768px) {
@@ -53,8 +48,8 @@
   block-size: 25px;
   bottom: 10px;
   left: 10px;
-  border-inline-start: 1px solid var(--accent-color);
-  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--border-color);
+  border-block-end: 1px solid var(--border-color);
 }
 
 @media (width >= 768px) {
@@ -65,7 +60,7 @@
 }
 
 .header__rec {
-  display: block;
+  display: var(--element-rec);
   position: absolute;
   top: 11px;
   right: 18px;
@@ -93,7 +88,7 @@
 
 .header__theme-menu {
   align-self: center;
-  color: var(--accent-color);
+  color: var(--color-theme-menu);
   font-size: var(--main-font-size);
 }
 
@@ -134,10 +129,12 @@
   text-align: center;
   background-color: transparent;
   cursor: pointer;
+  border: none;
+  transition: outline 0.6s;
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid rgba(255, 0, 112, 0.40);
+  outline: 1px solid var(--hover-color);
 }
 
 .header__theme-menu-button:focus {
@@ -145,25 +142,13 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  border-block-end: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--border-color);
   outline: none;
-}
-
-.header__theme-menu-button_type_light {
-  border: none;
 }
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  outline: 1px solid var(--accent-color);
-}
-
-.header__theme-menu-button_type_auto {
-  border: none;
-}
-
-.header__theme-menu-button_type_dark {
-  border: none;
+  outline: 1px solid var(--border-color);
 }
 
 .header__title {
@@ -178,6 +163,12 @@
   .header__title {
     margin-inline-start: -20px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (width >= 1024px) {
+  .header__title {
+    text-shadow: 4px 4px 0 var(--color-shadow);
   }
 }
 
@@ -206,7 +197,6 @@
   padding-inline-start: 10px;
   padding-inline-end: 10px;
   padding-block-start: 40px;
-  background-color: var(--background-color);
 }
 
 @media (width >= 768px) {
@@ -239,7 +229,7 @@
 @media (width >= 1024px) {
   .card__why {
     grid-template-columns: 1fr 2fr;
-    gap: 0px;
+    gap: 0;
   }
 }
 
@@ -251,7 +241,7 @@
 }
 
 .card__title {
-  color: var(--accent-color);
+  color: var(--color-card-title);
   font-size: var(--main-font-size);
   line-height: 23.4px;
   font-weight: 700;
@@ -294,6 +284,7 @@
 .cards__list-link {
   text-shadow: 2px 2px 0 var(--accent-color);
   text-decoration: none;
+  transition: border-block-end 0.6s;
 }
 
 .cards__list-link:focus {
@@ -376,7 +367,6 @@
   padding: 10px;
   block-size: 100vh;
   min-block-size: 668px;
-  background-color: var(--background-color);
 }
 
 @media (width >= 768px) {
@@ -396,5 +386,11 @@
 @media (width >= 768px) {
   .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (width >= 1024px) {
+  .footer__title {
+    text-shadow: 2px 2px 0 var(--color-shadow);
   }
 }
